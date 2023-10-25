@@ -1,0 +1,22 @@
+{
+    "sourceFile": "index.html",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1698241954865,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1698241960743,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n         <div id=\"chartContainer\" style=\"height: 100%; width: 100%;\"></div>\r\n     </div>\r\n     <script type=\"text/javascript\">\r\n         render = async () => {\r\n-            let chart = canvasjs_tpl(chartContainer, ``)\r\n+            let chart = canvasjs_tpl(chartContainer, `${report}`)\r\n             const report = getQueryParam('report');\r\n             console.log(report)\r\n             const dataPoints = await fetchCSVData(`/datasource/Report_${report}.csv`, 'DTrade')\r\n             const series_p_1 = {\r\n"
+                }
+            ],
+            "date": 1698241954865,
+            "name": "Commit-0",
+            "content": "<!DOCTYPE html>\r\n<html lang=\"en\">\r\n\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n    <script src=\"https://canvasjs.com/assets/script/canvasjs.min.js\"></script>\r\n    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js\"></script>\r\n    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js\"></script>\r\n    <script src=\"/ton.js\"></script>\r\n    <title>Document</title>\r\n</head>\r\n\r\n<body>\r\n    <div style=\"height: 97vh; width: 97vw;\" >\r\n        <div id=\"chartContainer\" style=\"height: 100%; width: 100%;\"></div>\r\n    </div>\r\n    <script type=\"text/javascript\">\r\n        render = async () => {\r\n            let chart = canvasjs_tpl(chartContainer, ``)\r\n            const report = getQueryParam('report');\r\n            console.log(report)\r\n            const dataPoints = await fetchCSVData(`/datasource/Report_${report}.csv`, 'DTrade')\r\n            const series_p_1 = {\r\n                axisYIndex: 0,\r\n                type: 'line',\r\n                color: 'blue',\r\n                axisYType: 'secondary',\r\n                xValueFormatString: 'YYYY-MM-DD',\r\n                dataPoints: dataPoints.map(data => ({ x: data.DTrade, y: data.TotalPortValue })),\r\n                logarithmic: true,\r\n                title: 'TotalPortValue',\r\n                minimum: 10000000,\r\n                maximum: 1000000000\r\n            }\r\n            const series_p_2 = {\r\n                axisYIndex: 1,\r\n                type: 'line',\r\n                color: 'darkred',\r\n                axisYType: 'secondary',\r\n                yLabelValueFormatString: \"#0%\",\r\n                yValueFormatString: \"#0.00%\",\r\n                dataPoints: dataPoints.map(data => ({ x: data.DTrade, y: data.DD })),\r\n                logarithmic: false,\r\n                title: 'DD',\r\n                minimum: -1,\r\n            }\r\n            const series_s_1 = {\r\n                axisYIndex: 2,\r\n                color: 'green',\r\n                type: 'line',\r\n                axisYType: 'secondary',\r\n                maximum: 5000,\r\n                \r\n                dataPoints: dataPoints.map(data => ({ x: data.DTrade, y: data.FT })),\r\n                logarithmic: false,\r\n                title: 'FT'\r\n            }\r\n\r\n            canvasjs_addSeries(chart, series_p_1);\r\n            canvasjs_addSeries(chart, series_p_2);\r\n            canvasjs_addSeries(chart, series_s_1);\r\n            chart.render();\r\n        }\r\n        render();\r\n    </script>\r\n</body>\r\n\r\n</html>"
+        }
+    ]
+}
