@@ -17,8 +17,8 @@
     </div>
     <script type="text/javascript">
         render = async () => {
-            let chart = canvasjs_tpl(chartContainer, `${report}`)
             const report = getQueryParam('report');
+            let chart = canvasjs_tpl(chartContainer, `${report}`)
             console.log(report)
             const dataPoints = await fetchCSVData(`/datasource/Report_${report}.csv`, 'DTrade')
             const series_p_1 = {

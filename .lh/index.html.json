@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 1,
+            "activePatchIndex": 2,
             "patches": [
                 {
                     "date": 1698241954865,
@@ -12,6 +12,10 @@
                 {
                     "date": 1698241960743,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n         <div id=\"chartContainer\" style=\"height: 100%; width: 100%;\"></div>\r\n     </div>\r\n     <script type=\"text/javascript\">\r\n         render = async () => {\r\n-            let chart = canvasjs_tpl(chartContainer, ``)\r\n+            let chart = canvasjs_tpl(chartContainer, `${report}`)\r\n             const report = getQueryParam('report');\r\n             console.log(report)\r\n             const dataPoints = await fetchCSVData(`/datasource/Report_${report}.csv`, 'DTrade')\r\n             const series_p_1 = {\r\n"
+                },
+                {
+                    "date": 1698242083859,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,8 @@\n         <div id=\"chartContainer\" style=\"height: 100%; width: 100%;\"></div>\r\n     </div>\r\n     <script type=\"text/javascript\">\r\n         render = async () => {\r\n-            \r\n             const report = getQueryParam('report');\r\n             let chart = canvasjs_tpl(chartContainer, `${report}`)\r\n             console.log(report)\r\n             const dataPoints = await fetchCSVData(`/datasource/Report_${report}.csv`, 'DTrade')\r\n"
                 }
             ],
             "date": 1698241954865,
